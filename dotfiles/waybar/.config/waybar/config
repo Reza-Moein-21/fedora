@@ -1,0 +1,86 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 38,
+  "spacing": 4,
+
+  "modules-left": ["sway/workspaces", "sway/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["tray","wireplumber", "bluetooth", "network", "sway/language", "power-profiles-daemon", "battery"],
+
+  "sway/workspaces": {
+    "format": "{name}: {icon}",
+    "format-icons": {
+        "urgent": "",
+        "focused": "",
+        "default": ""
+    },
+    "disable-scroll": true,
+    "all-outputs": true,
+    "sort-by-number": true,
+    "disable-click": false
+  },
+
+  "sway/window": {
+    "format": "{title}",
+    "icon" : true,
+    "icon-size": 18,
+    "max-length": 40,
+    "separate-outputs": true
+  },
+
+  "sway/language": {
+    "format": " {}",
+    "format-en": "EN",
+    "format-fa": "FA",
+    "tooltip": true,
+    "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+
+  "bluetooth": {
+	"format": "{status}",
+	"format-connected": "{device_alias}",
+	"format-connected-battery": "{device_alias} {device_battery_percentage}%",
+	// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+  },
+
+  "battery": {
+      "format": "{capacity}% {icon}",
+      "format-icons": ["", "", "", "", ""]
+  },
+
+  "clock": {
+        "format": "{:%F | %I:%M %p}",
+        "format-alt": "{:L%A, %B %d, %Y (%R)}",
+        "tooltip-format": "<span>{calendar}</span>"
+    },
+
+  "network": {
+    "format-wifi": " {essid}",
+    "format-ethernet": "󰈀 Wired",
+    "format-disconnected": "󰖪 Offline"
+  },
+
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "on-click": "helvum",
+    "format-icons": ["",""," "]
+  }
+}
