@@ -41,14 +41,15 @@ packages=(
 #    hyprlock hypridle hyprpaper brightnessctl xdg-desktop-portal-hyprland
 #
 #    # Networking
-#    networkmanager networkmanager-openconnect openconnect tor
+     NetworkManager NetworkManager-openconnect openconnect tor obfs4
+     openfortivpn
 #
     # Multimedia
      mpv celluloid chromium waybar loupe ffmpeg
     # photoflare
 #
 #    # Docker
-#    docker docker-compose lazydocker
+     docker-cli containerd docker-compose docker-compose-switch
 #
 #    # Development
 #    base-devel lldb gdb pkgconf cmake rust rust-analyzer ollama 
@@ -57,20 +58,15 @@ packages=(
 
 sudo dnf install -y "${packages[@]}"
 
-echo "Installing nvm(Node version manager)"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | bash
-
-echo "Install SDKMan"
-curl -s "https://get.sdkman.io" | bash
-
 echo "Running post-install scripts..."
 
-source ./_rust-setup.sh
-source ./_sdkman-setup.sh
-source ./_nvm-setup.sh
-# source ./nopass-openconnect.sh
-# source ./defaults-mime.sh
-# source ./docker-setup.sh
-source ./_zsh-setup.sh
+source ./_rust
+source ./_sdkman
+source ./_nvm
+source ./_ollama
+source ./_zsh
+source ./_mime-defaults
+source ./_docker
+# source ./nopass-openconnect
 
 echo "Done."

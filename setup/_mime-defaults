@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+echo "Setting default applications using xdg-mime"
+
+# File manager
+xdg-mime default thunar.desktop inode/directory
+
+# Image viewer (keeping Loupe as in your original)
+xdg-mime default org.gnome.Loupe.desktop image/png image/jpeg image/webp image/gif image/bmp image/tiff image/avif image/heic image/svg+xml
+
+# Video player
+xdg-mime default celluloid.desktop video/mp4 video/x-matroska video/webm video/avi video/mpeg video/quicktime
+
+echo "Done."

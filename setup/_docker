@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+echo "Enable docker on systemd"
+
+sudo systemctl enable --now docker
+
 echo "Adding $USER to the docker group..."
 
 sudo usermod -aG docker "$USER"

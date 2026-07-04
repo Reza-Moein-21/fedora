@@ -4,21 +4,31 @@
   "height": 38,
   "spacing": 4,
 
-  "modules-left": ["sway/workspaces", "sway/window"],
+  "modules-left": ["sway/workspaces","sway/mode", "sway/window"],
   "modules-center": ["clock"],
   "modules-right": ["tray","wireplumber", "bluetooth", "network", "sway/language", "power-profiles-daemon", "battery"],
 
   "sway/workspaces": {
-    "format": "{name}: {icon}",
-    "format-icons": {
-        "urgent": "",
-        "focused": "",
-        "default": ""
-    },
-    "disable-scroll": true,
-    "all-outputs": true,
-    "sort-by-number": true,
-    "disable-click": false
+      "format": "{name}",
+      "persistent-workspaces": {
+          "1": [],
+          "2": [],
+          "3": [],
+          "4": []
+      },
+      "format-icons": {
+          "focused": "",
+          "default": "",
+          "urgent": ""
+      },
+      "disable-scroll": true,
+      "all-outputs": true,
+      "sort-by-number": true
+  },
+
+  "sway/mode": {
+	"format": "{}",
+	"max-length": 50
   },
 
   "sway/window": {
