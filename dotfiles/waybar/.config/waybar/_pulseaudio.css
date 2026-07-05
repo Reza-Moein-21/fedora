@@ -1,0 +1,8 @@
+#pulseaudio {
+    min-width: 70px;
+    padding: 0 5px;
+}
+
+#pulseaudio.muted {
+    color: rgb(150, 150, 150);
+}

@@ -1,0 +1,16 @@
+#workspaces button {
+    padding: 0 12px;
+    background-color: transparent;
+    color: rgb(150, 150, 150);
+    border-bottom: 2px solid transparent;
+}
+
+#workspaces button.focused {
+    background-color: rgba(150, 150, 150, 0.3);
+    color: #ffcdcd;
+    border-bottom: 2px solid #ffcdcd;
+}
+
+#workspaces:hover {
+    background-color: transparent;
+}

@@ -1,0 +1,12 @@
+#network {
+    min-width: 70px;
+}
+
+#network.disconnected,
+#network.disabled {
+     color: rgb(150, 150, 150);
+}
+
+#network:hover {
+    background-color: transparent;
+}

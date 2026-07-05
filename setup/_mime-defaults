@@ -11,4 +11,7 @@ xdg-mime default org.gnome.Loupe.desktop image/png image/jpeg image/webp image/g
 # Video player
 xdg-mime default celluloid.desktop video/mp4 video/x-matroska video/webm video/avi video/mpeg video/quicktime
 
+# Terminal
+xdg-mime default alacritty.desktop x-scheme-handler/terminal
+
 echo "Done."

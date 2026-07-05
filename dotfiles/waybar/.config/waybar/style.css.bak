@@ -1,0 +1,233 @@
+/* -----------------------------------------------------
+ * Waybar - Catppuccin Mocha
+ * ----------------------------------------------------- */
+
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+
+    font-family: "Vazirmatn", "CaskaydiaCove Nerd Font";
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 2px;
+}
+
+window#waybar {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    border-bottom: 1px solid #313244;
+}
+
+/* -----------------------------------------------------
+ * Common module styling
+ * ----------------------------------------------------- */
+
+#workspaces,
+#mode,
+#window,
+#clock,
+#memory,
+#cpu,
+#idle_inhibitor,
+#tray,
+#wireplumber,
+#bluetooth,
+#network,
+#language,
+#power-profiles-daemon,
+#battery {
+    background: transparent;
+    color: #cdd6f4;
+
+    font-family: "CaskaydiaCove Nerd Font";
+    padding: 0 8px;
+    margin: 0;
+}
+
+/* -----------------------------------------------------
+ * Workspaces
+ * ----------------------------------------------------- */
+
+#workspaces {
+    padding: 0 3px;
+}
+
+#workspaces button {
+    min-width: 22px;
+    min-height: 20px;
+
+    padding: 0 6px;
+    margin: 6px 3px;
+
+    color: #7f849c;
+    background: #1e1e2e;
+
+    border: 1px solid #313244;
+    border-radius: 4px;
+
+    transition: all 150ms ease;
+}
+
+#workspaces button:hover {
+    color: #cdd6f4;
+    background: #313244;
+    border-color: #45475a;
+}
+
+#workspaces button.focused {
+    color: #1e1e2e;
+    background: #89b4fa;
+    border-color: #89b4fa;
+}
+
+#workspaces button.urgent {
+    color: #1e1e2e;
+    background: #f38ba8;
+    border-color: #f38ba8;
+}
+
+
+/* -----------------------------------------------------
+ * Window title
+ * ----------------------------------------------------- */
+
+#window {
+    color: #a6e3a1;
+}
+
+/* -----------------------------------------------------
+ * Clock
+ * ----------------------------------------------------- */
+
+#clock {
+    color: #f9e2af;
+}
+
+/* -----------------------------------------------------
+ * Audio
+ * ----------------------------------------------------- */
+
+#wireplumber {
+    color: #89dceb;
+}
+
+#wireplumber.muted {
+    color: #6c7086;
+}
+
+/* -----------------------------------------------------
+ * Bluetooth
+ * ----------------------------------------------------- */
+
+#bluetooth {
+    color: #94e2d5;
+}
+
+#bluetooth.disabled {
+    color: #6c7086;
+}
+
+/* -----------------------------------------------------
+ * Network
+ * ----------------------------------------------------- */
+
+#network {
+    color: #89b4fa;
+}
+
+#network.disconnected {
+    color: #f38ba8;
+}
+
+/* -----------------------------------------------------
+ * Keyboard layout
+ * ----------------------------------------------------- */
+
+#language {
+    color: #cba6f7;
+}
+
+/* -----------------------------------------------------
+ * Power profile
+ * ----------------------------------------------------- */
+
+#power-profiles-daemon {
+    color: #f5c2e7;
+}
+
+/* -----------------------------------------------------
+ * Battery
+ * ----------------------------------------------------- */
+
+#battery {
+    color: #a6e3a1;
+}
+
+#battery.warning {
+    color: #fab387;
+}
+
+#battery.critical {
+    color: #f38ba8;
+}
+
+#battery.charging {
+    color: #94e2d5;
+}
+
+/* -----------------------------------------------------
+ * Tray
+ * ----------------------------------------------------- */
+
+#tray {
+    padding: 0 ;
+}
+
+
+#tray > .passive,
+#tray > .active,
+#tray > .needs-attention {
+    padding: 0 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+
+#tray image {
+    margin: 0 8px;
+}
+
+/* -----------------------------------------------------
+ * Tooltip
+ * ----------------------------------------------------- */
+
+tooltip {
+    background: #181825;
+    border: 1px solid #313244;
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: #cdd6f4;
+}
+
+/* -----------------------------------------------------
+ * Calendar
+ * ----------------------------------------------------- */
+
+calendar {
+    background: #181825;
+    color: #cdd6f4;
+}
+
+calendar:selected {
+    background: #89b4fa;
+    color: #1e1e2e;
+}

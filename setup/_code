@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+echo "Enable VS Code repo"
+
+REPO_FILE="/etc/yum.repos.d/vscode.repo"
+
+if [[ ! -f "$REPO_FILE" ]]; then
+    echo "Adding Visual Studio Code repository..."
+
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+
+    sudo tee "$REPO_FILE" > /dev/null <<'EOF'
+[code]
+name=Visual Studio Code
+baseurl=https://packages.microsoft.com/yumrepos/vscode
+enabled=1
+autorefresh=1
+type=rpm-md
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+EOF
+
+    echo "Repository added."
+else
+    echo "Visual Studio Code repository already exists."
+fi
+
+echo "Done."

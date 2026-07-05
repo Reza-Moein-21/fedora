@@ -1,0 +1,25 @@
+#battery {
+    min-width: 70px;
+}
+
+#battery.charging {
+    background-color: #0b8a40;
+}
+
+#battery.warning:not(.charging) {
+    background-color: #aa5b11;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.critical:not(.charging) {
+    background-color: #aa1b1b;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

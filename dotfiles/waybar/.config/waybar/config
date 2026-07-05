@@ -1,52 +1,91 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 38,
-  "spacing": 4,
-
-  "modules-left": ["sway/workspaces","sway/mode", "sway/window"],
-  "modules-center": ["clock"],
-  "modules-right": ["tray","wireplumber", "bluetooth", "network", "sway/language", "power-profiles-daemon", "battery"],
-
+  "height": 32,
+  "spacing": 10,
+  "modules-left": [
+    "sway/workspaces",
+    "sway/mode",
+    "privacy",
+    "sway/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "tray",
+    "pulseaudio",
+    "network",
+    "sway/language",
+    "idle_inhibitor",
+    "power-profiles-daemon",
+    "battery",
+    "custom/power"
+  ],
+  "custom/power": {
+    "format": "",
+    "tooltip": false,
+    "on-click": ""
+  },
   "sway/workspaces": {
-      "format": "{name}",
-      "persistent-workspaces": {
-          "1": [],
-          "2": [],
-          "3": [],
-          "4": []
-      },
-      "format-icons": {
-          "focused": "",
-          "default": "",
-          "urgent": ""
-      },
-      "disable-scroll": true,
-      "all-outputs": true,
-      "sort-by-number": true
+    "format": "{name}",
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": []
+    },
+    "format-icons": {
+      "focused": "",
+      "default": "",
+      "urgent": ""
+    },
+    "disable-scroll": true,
+    "all-outputs": true,
+    "sort-by-number": true
   },
-
   "sway/mode": {
-	"format": "{}",
-	"max-length": 50
+    "format": "{}",
+    "max-length": 50
   },
-
   "sway/window": {
     "format": "{title}",
-    "icon" : true,
+    "icon": true,
     "icon-size": 18,
     "max-length": 40,
     "separate-outputs": true
   },
-
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": "󰾪"
+    },
+    "tooltip": true,
+    "tooltip-format-activated": "Caffeine: ON",
+    "tooltip-format-deactivated": "Caffeine: OFF"
+  },
+  "memory": {
+    "interval": 5,
+    "format": "{}% ",
+    "max-length": 10
+  },
+  "cpu": {
+    "interval": 5,
+    "format": "{}% ",
+    "max-length": 10
+  },
+  "custom/nvidia": {
+    "exec": "nvidia-smi --query-gpu=utilization.gpu,temperature.gpu --format=csv,nounits,noheader | sed 's/\\([0-9]\\+\\), \\([0-9]\\+\\)/\\1% 🌡️\\2°C/g'",
+    "interval": 5,
+    "format": "{} 󰢮"
+  },
   "sway/language": {
-    "format": " {}",
-    "format-en": "EN",
-    "format-fa": "FA",
+    "format": " {short}",
+    "tooltip-format": "{flag} {long}{variant}",
     "tooltip": true,
     "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
   },
-
   "power-profiles-daemon": {
     "format": "{icon}",
     "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
@@ -58,39 +97,92 @@
       "power-saver": ""
     }
   },
-
-  "bluetooth": {
-	"format": "{status}",
-	"format-connected": "{device_alias}",
-	"format-connected-battery": "{device_alias} {device_battery_percentage}%",
-	// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
-	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
-  },
-
   "battery": {
-      "format": "{capacity}% {icon}",
-      "format-icons": ["", "", "", "", ""]
-  },
-
-  "clock": {
-        "format": "{:%F | %I:%M %p}",
-        "format-alt": "{:L%A, %B %d, %Y (%R)}",
-        "tooltip-format": "<span>{calendar}</span>"
+    "format": "{capacity}% {icon}",
+    "states": {
+      "warning": 30,
+      "critical": 15
     },
-
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "clock": {
+    "format": "{:%F | %I:%M %p}",
+    "format-alt": "{:L%A, %B %d, %Y (%R)}",
+    "tooltip-format": "<span>{calendar}</span>"
+  },
   "network": {
     "format-wifi": " {essid}",
     "format-ethernet": "󰈀 Wired",
     "format-disconnected": "󰖪 Offline"
   },
-
-  "wireplumber": {
-    "format": "{icon} {volume}%",
-    "format-muted": "",
-    "on-click": "helvum",
-    "format-icons": ["",""," "]
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "0% ",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "hdmi": "",
+      "phone": "",
+      "phone-muted": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        " ",
+        " "
+      ]
+    },
+    "scroll-step": 0.6,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol"
+  },
+  "privacy": {
+    "icon-spacing": 4,
+    "icon-size": 18,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-out",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "location",
+        "icon-name": "location-services-active-symbolic"
+      }
+    ],
+    "ignore-monitor": true,
+    "ignore": [
+      {
+        "type": "audio-in",
+        "name": "cava"
+      },
+      {
+        "type": "screenshare",
+        "name": "obs"
+      }
+    ]
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10
   }
 }

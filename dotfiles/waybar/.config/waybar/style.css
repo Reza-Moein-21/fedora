@@ -1,229 +1,59 @@
-/* -----------------------------------------------------
- * Waybar - Catppuccin Mocha
- * ----------------------------------------------------- */
-
 * {
     border: none;
     border-radius: 0;
-    min-height: 0;
-
-    font-family: "Vazirmatn", "CaskaydiaCove Nerd Font";
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
+    min-height: 0;
 }
 
+@import "_window.css";
+@import "_workspaces.css";
+@import "_battery.css";
+@import "_power-profiles-daemon.css";
+@import "_language.css";
+@import "_custom-power.css";
+@import "_custom-nvidia.css";
+@import "_network.css";
+@import "_pulseaudio.css";
+@import "_idle_inhibitor.css";
+@import "_tray.css";
+
+
+/* 
+Global colors:
+
+bg: rgb(36, 0, 0);
+fg: #ffcdcd
+healthy: #0b8a40
+warning: #aa5b11
+danger: #aa1b1b
+
+*/
 window#waybar {
-    background: #1e1e2e;
-    color: #cdd6f4;
-    border-bottom: 1px solid #313244;
+    font-family: "CaskaydiaCove Nerd Font", sans-serif;
+    background-color: rgb(36, 0, 0);
+    color: #ffcdcd;
+    transition-property: background-color;
+    transition-duration: .5s;
+
 }
-
-/* -----------------------------------------------------
- * Common module styling
- * ----------------------------------------------------- */
-
-#workspaces,
-#mode,
-#window,
-#clock,
-#tray,
-#wireplumber,
-#bluetooth,
-#network,
-#language,
-#power-profiles-daemon,
-#battery {
-    background: transparent;
-    color: #cdd6f4;
-
-    font-family: "CaskaydiaCove Nerd Font";
-    padding: 0 8px;
-    margin: 0;
-}
-
-/* -----------------------------------------------------
- * Workspaces
- * ----------------------------------------------------- */
-
-#workspaces {
-    padding: 0 6px;
-}
-
-#workspaces button {
-    min-width: 22px;
-    min-height: 20px;
-
-    padding: 2px 4px;
-    margin: 6px 2px;
-
-    color: #7f849c;
-    background: #1e1e2e;
-
-    border: 1px solid #313244;
-    border-radius: 4px;
-
-    transition: all 150ms ease;
-}
-
-#workspaces button:hover {
-    color: #cdd6f4;
-    background: #313244;
-    border-color: #45475a;
-}
-
-#workspaces button.focused {
-    color: #1e1e2e;
-    background: #89b4fa;
-    border-color: #89b4fa;
-}
-
-#workspaces button.urgent {
-    color: #1e1e2e;
-    background: #f38ba8;
-    border-color: #f38ba8;
-}
-
-
-/* -----------------------------------------------------
- * Window title
- * ----------------------------------------------------- */
-
-#window {
-    color: #a6e3a1;
-}
-
-/* -----------------------------------------------------
- * Clock
- * ----------------------------------------------------- */
-
-#clock {
-    color: #f9e2af;
-}
-
-/* -----------------------------------------------------
- * Audio
- * ----------------------------------------------------- */
-
-#wireplumber {
-    color: #89dceb;
-}
-
-#wireplumber.muted {
-    color: #6c7086;
-}
-
-/* -----------------------------------------------------
- * Bluetooth
- * ----------------------------------------------------- */
-
-#bluetooth {
-    color: #94e2d5;
-}
-
-#bluetooth.disabled {
-    color: #6c7086;
-}
-
-/* -----------------------------------------------------
- * Network
- * ----------------------------------------------------- */
-
-#network {
-    color: #89b4fa;
-}
-
-#network.disconnected {
-    color: #f38ba8;
-}
-
-/* -----------------------------------------------------
- * Keyboard layout
- * ----------------------------------------------------- */
-
-#language {
-    color: #cba6f7;
-}
-
-/* -----------------------------------------------------
- * Power profile
- * ----------------------------------------------------- */
-
-#power-profiles-daemon {
-    color: #f5c2e7;
-}
-
-/* -----------------------------------------------------
- * Battery
- * ----------------------------------------------------- */
-
-#battery {
-    color: #a6e3a1;
-}
-
-#battery.warning {
-    color: #fab387;
-}
-
-#battery.critical {
-    color: #f38ba8;
-}
-
-#battery.charging {
-    color: #94e2d5;
-}
-
-/* -----------------------------------------------------
- * Tray
- * ----------------------------------------------------- */
-
-#tray {
-    padding: 0 ;
-}
-
-
-#tray > .passive,
-#tray > .active,
-#tray > .needs-attention {
-    padding: 0 8px;
-}
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-}
-
-
-#tray image {
-    margin: 0 8px;
-}
-
-/* -----------------------------------------------------
- * Tooltip
- * ----------------------------------------------------- */
 
 tooltip {
-    background: #181825;
-    border: 1px solid #313244;
-    border-radius: 8px;
+    background: rgb(36, 0, 0);
+    border: 1px solid rgb(36, 0, 0);
 }
 
 tooltip label {
-    color: #cdd6f4;
+    font-family: "CaskaydiaCove Nerd Font", sans-serif;
+    color: #ffcdcd;
 }
 
-/* -----------------------------------------------------
- * Calendar
- * ----------------------------------------------------- */
-
-calendar {
-    background: #181825;
-    color: #cdd6f4;
+.module {
+    margin: 0;
 }
 
-calendar:selected {
-    background: #89b4fa;
-    color: #1e1e2e;
+.module:hover {
+    background-color: rgba(150, 150, 150, 0.3);
+    transition-property: background-color;
+    transition-duration: .5s;
 }

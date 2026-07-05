@@ -13,6 +13,7 @@ sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-r
 sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf copr enable dejan/lazygit -y
 sudo dnf copr enable atim/starship -y
+source ./_code
 
 echo "Installing packages..."
 
@@ -31,29 +32,30 @@ packages=(
      gnome-keyring
 #
 #    # Themes
-     pop-gtk3-theme pop-gtk4-theme pop-icon-theme 
+     yaru-icon-theme yaru-gtk4-theme yaru-gtk3-theme breeze-cursor-theme
+     rsms-inter-fonts
      # nwg-look
-#
-#    # Graphics
-#    nvidia-dkms linux-headers nvidia-utils intel-media-driver
-#
-#    # Hyprland
-#    hyprlock hypridle hyprpaper brightnessctl xdg-desktop-portal-hyprland
-#
-#    # Networking
+
+     # Graphics
+     akmod-nvidia-580xx xorg-x11-drv-nvidia-580xx xorg-x11-drv-nvidia-580xx-cuda
+     mesa-demos 
+     
+     # Gaming 
+     steam mangohud gamemode vulkan-tools mesa-vulkan-drivers
+
+     # Networking
      NetworkManager NetworkManager-openconnect openconnect tor obfs4
      openfortivpn
-#
+
     # Multimedia
      mpv celluloid chromium waybar loupe ffmpeg
     # photoflare
-#
-#    # Docker
+
+     # Docker
      docker-cli containerd docker-compose docker-compose-switch
-#
-#    # Development
-#    base-devel lldb gdb pkgconf cmake rust rust-analyzer ollama 
-     git gh lazygit neovim nodejs npm 
+
+     # Development
+     code git gh lazygit neovim nodejs npm 
 )
 
 sudo dnf install -y "${packages[@]}"
@@ -62,11 +64,12 @@ echo "Running post-install scripts..."
 
 source ./_rust
 source ./_sdkman
-source ./_nvm
+# source ./_nvm # TODO not ready yet
 source ./_ollama
 source ./_zsh
 source ./_mime-defaults
 source ./_docker
+source ./_nvidia
 # source ./nopass-openconnect
 
 echo "Done."

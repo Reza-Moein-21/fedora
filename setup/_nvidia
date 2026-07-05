@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+echo "Nvidia setup"
+
+# Incase of package conflict
+
+#  sudo dnf remove \
+#  'akmod-nvidia*' \
+#  'kmod-nvidia*' \
+#  'xorg-x11-drv-nvidia*' \
+#  'nvidia-settings' \
+#  'nvidia-modprobe' \
+#  'nvidia-persistenced'
+#  
+
+echo "Done."
