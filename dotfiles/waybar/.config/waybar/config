@@ -2,7 +2,7 @@
   "layer": "top",
   "position": "top",
   "height": 32,
-  "spacing": 10,
+  "spacing": 6,
   "modules-left": [
     "sway/workspaces",
     "sway/mode",
@@ -98,7 +98,8 @@
     }
   },
   "battery": {
-    "format": "{capacity}% {icon}",
+    "format": "{icon}",
+    "tooltip-format": "{capacity}%",
     "states": {
       "warning": 30,
       "critical": 15
@@ -117,12 +118,16 @@
     "tooltip-format": "<span>{calendar}</span>"
   },
   "network": {
-    "format-wifi": " {essid}",
-    "format-ethernet": "󰈀 Wired",
-    "format-disconnected": "󰖪 Offline"
+    "format-wifi": " ",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰖪",
+    "tooltip-format-wifi": "{essid}",
+    "tooltip-format-ethernet": "Wired",
+    "tooltip-format-disconnected": "Offline"
   },
   "pulseaudio": {
-    "format": "{volume}% {icon}",
+    "format": "{icon}",
+    "tooltip-format": "{volume}%",
     "format-bluetooth": "{volume}% {icon}",
     "format-muted": "0% ",
     "format-icons": {
@@ -182,7 +187,7 @@
     ]
   },
   "tray": {
-    "icon-size": 18,
-    "spacing": 10
+    "icon-size": 20,
+    "spacing": 20 
   }
 }

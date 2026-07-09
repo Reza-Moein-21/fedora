@@ -6,13 +6,14 @@ echo "Updating system..."
 
 sudo dnf update --refresh -y
 
-
+sudo dnf group install -y development-tools 
 
 echo "Setup extra repos"
 sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf copr enable dejan/lazygit -y
 sudo dnf copr enable atim/starship -y
+source ./_brave
 source ./_code
 
 echo "Installing packages..."
@@ -22,14 +23,14 @@ packages=(
 #    base-devel     uwsm libnewt  
     # dunst pipewire wireplumber udisks2 udiskie
     zsh eza bat fd fzf zoxide ripgrep stow  fontconfig tmux remmina 
-    ntfs-3g btop bash-completion zip unzip unrar wl-clipboard
+    ntfs-3g btop bash-completion zip unzip unrar file-roller wl-clipboard
     less zsh zsh-autosuggestions zsh-syntax-highlighting
-    alacritty starship persepolis kanshi
+    alacritty starship persepolis kanshi dnf-plugins-core
 #    # ghostty ghostty-nautilus
 #
 #    # GNOME Desktop
      xdg-desktop-portal-gtk gvfs gtk3 gtk4 glib2
-     gnome-keyring
+     gnome-keyring nautilus
 #
 #    # Themes
      yaru-icon-theme yaru-gtk4-theme yaru-gtk3-theme breeze-cursor-theme
@@ -38,7 +39,7 @@ packages=(
 
      # Graphics
      akmod-nvidia-580xx xorg-x11-drv-nvidia-580xx xorg-x11-drv-nvidia-580xx-cuda
-     mesa-demos 
+     mesa-demos qt6ct qt5ct kvantum
      
      # Gaming 
      steam mangohud gamemode vulkan-tools mesa-vulkan-drivers
@@ -48,7 +49,7 @@ packages=(
      openfortivpn
 
     # Multimedia
-     mpv celluloid chromium waybar loupe ffmpeg
+     mpv celluloid brave-browser waybar loupe ffmpeg discord
     # photoflare
 
      # Docker
@@ -56,6 +57,9 @@ packages=(
 
      # Development
      code git gh lazygit neovim nodejs npm 
+     clang lld llvm libX11-devel libXrandr-devel libXinerama-devel libXcursor-devel libXi-devel 
+     mesa-libGL-devel mesa-libEGL-devel wayland-devel libxkbcommon-devel
+     mingw64-gcc mingw64-binutils
 )
 
 sudo dnf install -y "${packages[@]}"
