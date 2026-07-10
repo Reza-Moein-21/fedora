@@ -24,8 +24,9 @@
   ],
   "custom/power": {
     "format": "",
-    "tooltip": false,
-    "on-click": ""
+    "tooltip": true,
+    "tooltip-format": "Power Menu",
+    "on-click": "$HOME/.config/sway/scripts/power-menu.sh"
   },
   "sway/workspaces": {
     "format": "{name}",
@@ -129,7 +130,7 @@
     "format": "{icon}",
     "tooltip-format": "{volume}%",
     "format-bluetooth": "{volume}% {icon}",
-    "format-muted": "0% ",
+    "format-muted": "",
     "format-icons": {
       "headphone": "",
       "hands-free": "",

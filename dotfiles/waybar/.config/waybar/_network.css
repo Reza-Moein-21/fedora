@@ -1,7 +1,10 @@
 #network {
     min-width: 30px;
     padding: 0 5px;
+}
 
+#network.ethernet {
+    font-size: 18px;
 }
 
 #network.disconnected,

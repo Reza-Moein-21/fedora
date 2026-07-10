@@ -23,9 +23,10 @@ packages=(
 #    base-devel     uwsm libnewt  
     # dunst pipewire wireplumber udisks2 udiskie
     zsh eza bat fd fzf zoxide ripgrep stow  fontconfig tmux remmina 
-    ntfs-3g btop bash-completion zip unzip unrar file-roller wl-clipboard
+    ntfs-3g btop bash-completion zip unzip unrar file-roller wl-clipboard cliphist
     less zsh zsh-autosuggestions zsh-syntax-highlighting
     alacritty starship persepolis kanshi dnf-plugins-core
+    
 #    # ghostty ghostty-nautilus
 #
 #    # GNOME Desktop
